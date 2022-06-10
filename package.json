@@ -1,0 +1,49 @@
+{
+  "name": "@xzcoder/pack-cli",
+  "version": "0.0.8",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "pack-cli": "index.js"
+  },
+  "scripts": {
+    "dev": "NODE_ENV=development node index.js --config pack.config.yml --workDir .xzcoder",
+    "test:template": "node test/template.js",
+    "test": "node test.cjs"
+  },
+  "keywords": [
+    "uni-app",
+    "pack",
+    "app-plus"
+  ],
+  "author": "zhushuai_it@163.com",
+  "license": "ISC",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "compressing": "^1.5.1",
+    "dotenv": "^16.0.1",
+    "download": "^8.0.0",
+    "fs-extra": "^10.1.0",
+    "lodash": "^4.17.21",
+    "minimist": "^1.2.6",
+    "yaml": "^2.1.1"
+  },
+  "devDependencies": {
+    "art-template": "^4.13.2",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "compressing": "^1.5.1",
+    "cross-env": "^7.0.2",
+    "dotenv": "^16.0.1",
+    "download": "^8.0.0",
+    "fs-extra": "^10.1.0",
+    "jsona": "^1.9.7",
+    "lodash": "^4.17.21",
+    "minimist": "^1.2.6",
+    "strip-json-comments": "^4.0.0",
+    "top-level-await": "^1.1.0",
+    "yaml": "^2.1.1"
+  }
+}

@@ -1,0 +1,63 @@
+apply plugin: 'com.android.application'
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+        applicationId "{{ applicationId }}"
+        minSdkVersion 23
+        targetSdkVersion 30
+        {{if buildToolsVersion }}
+        buildToolsVersion "{{ buildToolsVersion }}"
+        {{/if}}
+        versionCode {{ versionCode }}
+        versionName "{{ versionName }}"
+
+        multiDexEnabled true
+
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+    }
+
+    signingConfigs {
+        config {
+            keyAlias '{{ certificate.keyAlias }}'
+            keyPassword '{{ certificate.keyPassword }}'
+            storeFile file('keystore.jks')
+            storePassword '{{ certificate.storePassword }}'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.config
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            signingConfig signingConfigs.config
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    aaptOptions {
+        additionalParameters '--auto-add-overlay'
+        ignoreAssetsPattern "!.svn:!.git:.*:!CVS:!thumbs.db:!picasa.ini:!*.scc:*~"
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: [])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.facebook.fresco:fresco:2.5.0'
+    implementation "com.facebook.fresco:animated-gif:2.5.0"
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    implementation 'com.alibaba:fastjson:1.1.46.android'
+}

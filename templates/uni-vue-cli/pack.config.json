@@ -1,0 +1,11 @@
+{
+  "android": {
+    "appKey": "1b31a77e8f2e6aa70d34fe5bd9c74cc7",
+    "applicationId": "com.zs.test",
+    "keystore": {
+      "file": "test.jks",
+      "alias": "testalias",
+      "password": "123456"
+    }
+  }
+}
